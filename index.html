@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thena – Transform Your Life Today</title>
+  <meta name="description" content="Thena is the missing structure between knowing yourself and living on purpose.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:      #ede9e2;
+      --terracotta: #a74528;
+      --salmon:     #db8f78;
+      --peach:      #ffb7a1;
+      --text:       #171614;
+      --white:      #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    /* ─── Nav ─────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 5rem;
+      border-bottom: 1px solid rgba(23,22,20,0.08);
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    .nav-links .nav-cta a {
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 0.55rem 1.4rem;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    .nav-links .nav-cta a:hover {
+      color: var(--white);
+      opacity: 0.88;
+    }
+
+    /* ─── Shared helpers ──────────────────────────────────── */
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+
+    .eyebrow {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.1rem;
+    }
+
+    .eyebrow-light { color: var(--peach); }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.18;
+      margin-bottom: 1.4rem;
+    }
+
+    h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.97rem;
+      border-radius: 3px;
+      padding: 0.9rem 2.4rem;
+      transition: opacity 0.15s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn:hover { opacity: 0.87; }
+
+    .btn-dark {
+      background: var(--terracotta);
+      color: var(--white);
+    }
+
+    .btn-mid {
+      background: var(--salmon);
+      color: var(--text);
+      width: 100%;
+      text-align: center;
+      padding: 0.85rem 2rem;
+    }
+
+    /* ─── Hero ───────────────────────────────────────────── */
+    #hero {
+      background: var(--cream);
+      padding: 9rem 5rem 7rem;
+      text-align: center;
+    }
+
+    .hero-inner { max-width: 820px; margin: 0 auto; }
+
+    #hero .eyebrow { margin-bottom: 1.6rem; }
+
+    #hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.6rem;
+      color: var(--text);
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 2.6rem;
+    }
+
+    /* ─── Why Stuck / How It Works ───────────────────────── */
+    #how {
+      background: var(--white);
+      padding: 6rem 5rem;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .how-left h2 { margin-bottom: 0.5rem; }
+
+    .how-intro {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .stuck-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .stuck-item {
+      font-size: 1rem;
+      padding: 1.1rem 1.4rem;
+      border-left: 3px solid var(--salmon);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    .stuck-note {
+      margin-top: 2rem;
+      font-style: italic;
+      font-size: 0.97rem;
+      color: var(--terracotta);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* ─── What Thena Is ──────────────────────────────────── */
+    #section-1 {
+      background: var(--cream);
+      padding: 7rem 5rem;
+    }
+
+    .what-header { max-width: 680px; margin-bottom: 3.5rem; }
+
+    .what-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      margin-bottom: 1.2rem;
+    }
+
+    .what-body {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .what-header .btn { margin-top: 1.5rem; }
+
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.2rem 2rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .feature-card p {
+      font-size: 0.93rem;
+      color: #5a5a5a;
+      line-height: 1.7;
+    }
+
+    /* ─── Growth Made Visible ────────────────────────────── */
+    #growth {
+      background: var(--terracotta);
+      padding: 7rem 5rem;
+    }
+
+    .growth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .growth-text h2 { color: var(--white); margin-bottom: 1.2rem; }
+
+    .growth-text p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 0.9rem;
+    }
+
+    .growth-text strong { color: var(--white); }
+
+    .growth-stat {
+      text-align: center;
+      background: rgba(0,0,0,0.12);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+    }
+
+    .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 5.5rem;
+      font-weight: 800;
+      color: var(--peach);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-desc {
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-caption {
+      color: var(--peach);
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* ─── Program ────────────────────────────────────────── */
+    #program {
+      background: var(--cream);
+      padding: 7rem 5rem;
+    }
+
+    .program-header { max-width: 540px; margin-bottom: 3.5rem; }
+
+    .session-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .session-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2.2rem;
+    }
+
+    .session-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--salmon);
+      margin-bottom: 0.85rem;
+    }
+
+    .session-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .session-card p {
+      font-size: 0.94rem;
+      color: #5a5a5a;
+      line-height: 1.72;
+    }
+
+    .session-card p + p { margin-top: 0.75rem; }
+
+    /* ─── Our Story ──────────────────────────────────────── */
+    #our-story {
+      background: var(--white);
+      padding: 7rem 5rem;
+    }
+
+    .story-inner { max-width: 680px; }
+
+    .story-inner h2 { margin-bottom: 0.3rem; }
+
+    .story-note {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--salmon);
+      margin-bottom: 2rem;
+    }
+
+    .story-body {
+      font-size: 1.03rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+
+    .story-sig {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    /* ─── Testimonial ────────────────────────────────────── */
+    #testimonial {
+      background: var(--cream);
+      padding: 7rem 5rem;
+      text-align: center;
+    }
+
+    .pull-quote {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--terracotta);
+      max-width: 780px;
+      margin: 0 auto 4rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.8rem 3rem;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .testimonial-text {
+      font-size: 1.08rem;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 0.93rem;
+      color: var(--terracotta);
+    }
+
+    /* ─── Workshop ───────────────────────────────────────── */
+    #workshop {
+      background: var(--salmon);
+      padding: 7rem 5rem;
+    }
+
+    .workshop-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .workshop-info h2 { color: var(--white); margin-bottom: 1.2rem; }
+
+    .workshop-desc {
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .workshop-when {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .workshop-form-wrap {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.6rem 2.4rem;
+    }
+
+    .form-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.6rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.38rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .form-group input {
+      padding: 0.72rem 0.9rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 0.94rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-group input:focus { border-color: var(--salmon); }
+
+    /* ─── Bottom CTA ─────────────────────────────────────── */
+    #cta {
+      background: var(--cream);
+      padding: 8rem 5rem;
+      text-align: center;
+    }
+
+    .cta-inner { max-width: 620px; margin: 0 auto; }
+
+    #cta h2 { margin-bottom: 1.4rem; }
+
+    .cta-body {
+      font-size: 1.05rem;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 2.6rem;
+    }
+
+    /* ─── Newsletter ─────────────────────────────────────── */
+    #newsletter {
+      background: var(--terracotta);
+      padding: 5rem;
+      text-align: center;
+    }
+
+    #newsletter h3 {
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .nl-desc {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.88rem;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .nl-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    .nl-form input {
+      flex: 1;
+      padding: 0.78rem 1rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.94rem;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .btn-nl {
+      background: var(--text);
+      color: var(--white);
+      padding: 0.78rem 1.6rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+
+    .btn-nl:hover { opacity: 0.85; }
+
+    /* ─── Footer ─────────────────────────────────────────── */
+    footer {
+      background: var(--text);
+      padding: 3rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: rgba(237,233,226,0.65);
+      max-width: 440px;
+      line-height: 1.65;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: rgba(237,233,226,0.38);
+      white-space: nowrap;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; }
+
+      #hero,
+      #how,
+      #section-1,
+      #growth,
+      #program,
+      #our-story,
+      #testimonial,
+      #workshop,
+      #cta,
+      #newsletter { padding-left: 1.8rem; padding-right: 1.8rem; }
+
+      .how-grid,
+      .growth-grid,
+      .workshop-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      .feature-cards,
+      .session-grid { grid-template-columns: 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 1.8rem;
+      }
+
+      .footer-tagline { max-width: 100%; }
+
+      .nl-form { flex-direction: column; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      #hero h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ Navigation ═══════════════════════════════════════════ -->
+<nav>
+  <a href="/" class="nav-logo" aria-label="Thena home">
+    <img
+      src="https://static.wixstatic.com/media/d0f797_23b9f4fb864e48b2807ee0c7174c263b~mv2.png"
+      alt="Thena"
+    />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#our-story">About</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#our-story">Our Story</a></li>
+    <li class="nav-cta"><a href="#section-1">Start Today</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ Hero ══════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">a GUIDED LIFE DESIGN SYSTEM</span>
+    <h1>The First Step Towards an Intentional Life</h1>
+    <p class="hero-sub">You've done the work. The insights are real. They just don't compound.</p>
+    <p class="hero-body">Thena is the missing structure between knowing yourself and living on purpose.</p>
+    <a href="https://calendly.com/pm-achaibar/30min" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Book Your Intro Call</a>
+  </div>
+</section>
+
+<!-- ═══ How It Works / Why You Feel Stuck ════════════════════ -->
+<section id="how">
+  <div class="section-inner">
+    <div class="how-grid">
+      <div class="how-left">
+        <span class="eyebrow">How It Works</span>
+        <h2>WHY YOU FEEL STUCK</h2>
+        <p class="how-intro">You're doing the work, but how do you know if it's working?</p>
+        <div class="stuck-list">
+          <div class="stuck-item">You know something feels off, but it's hard to say what.</div>
+          <div class="stuck-item">You start, but when you do move forward, how do you know if it's in the right direction?</div>
+          <div class="stuck-item">You're doing the work, but how do you know if it's working?</div>
+        </div>
+        <p class="stuck-note">These aren't personal failures. This isn't a motivation problem: It's a structure problem.</p>
+      </div>
+      <div class="how-right">
+        <!-- Visual accent column – mirrors the card-like feel of the original -->
+        <div style="background:var(--cream);border-radius:10px;padding:3rem 2.5rem;height:100%;display:flex;flex-direction:column;justify-content:center;gap:1.8rem;">
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.8rem;font-weight:800;color:var(--terracotta);line-height:1;">01</div>
+            <p style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:0.5rem;">Understand exactly where you stand in every area of your life.</p>
+          </div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.8rem;font-weight:800;color:var(--terracotta);line-height:1;">02</div>
+            <p style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:0.5rem;">Define what success means to you — not someone else's version.</p>
+          </div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.8rem;font-weight:800;color:var(--terracotta);line-height:1;">03</div>
+            <p style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:0.5rem;">Build a plan that closes the gap between where you are and where you want to be.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ What Thena Is ══════════════════════════════════════════ -->
+<section id="section-1">
+  <div class="section-inner">
+    <div class="what-header">
+      <span class="eyebrow">WHAT THENA IS</span>
+      <h2>The missing piece between insight and action that meets you where you are</h2>
+      <p class="what-body">Not a therapist. Not a productivity app. Not a life coach. Thena is a System to Build an Intentional Life.</p>
+      <p class="what-body">Most tools help you either learn about yourself or get things done, but few give you a structure that connects the two. Thena closes the gap between knowing yourself and living intentionally.</p>
+      <a href="https://calendly.com/pm-achaibar/30min" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Start Today</a>
+    </div>
+
+    <div class="feature-cards">
+      <div class="feature-card">
+        <h3>Built On What Already Works</h3>
+        <p>Thena brings together years of research about how people think, change, and grow, translated into a cohesive system.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Strategy Made Personal</h3>
+        <p>Thena adapts the best strategic frameworks that drive high-performing organizations for the most important project you'll ever run: your own life.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Thena Starts And Ends With You</h3>
+        <p>AI helps you see patterns, our trained guides support you every step of the way, while you remain in control of the process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Growth Made Visible ════════════════════════════════════ -->
+<section id="growth">
+  <div class="section-inner">
+    <div class="growth-grid">
+      <div class="growth-text">
+        <span class="eyebrow eyebrow-light">What Makes Thena Different</span>
+        <h2>Growth Made Visible</h2>
+        <p>Most programs help you feel better, maybe clearer, more motivated. But after a few months, it's hard to see what's really changed. Thena takes a different approach. From start to finish, Thena focuses on one question: Is your life moving in the direction you want?</p>
+        <p><strong>Progress isn't just a feeling. We track it over time.</strong></p>
+      </div>
+      <div class="growth-stat">
+        <div class="stat-num">+20%</div>
+        <p class="stat-desc">increase in life satisfaction score after 3 months</p>
+        <p class="stat-caption">From feeling scattered to knowing exactly where &amp; why</p>
+        <p class="stat-label">What you leave with</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Program ════════════════════════════════════════════════ -->
+<section id="program">
+  <div class="section-inner">
+    <div class="program-header">
+      <span class="eyebrow">The Program</span>
+      <h2>How It Works</h2>
+    </div>
+    <div class="session-grid">
+      <div class="session-card">
+        <p class="session-num">Session 1</p>
+        <h3>See Your Life Clearly</h3>
+        <p>Get a clear look at every part of your life: what's going well, what's missing, and where your time and energy really go.</p>
+      </div>
+      <div class="session-card">
+        <p class="session-num">Session 2</p>
+        <h3>Define Success on Your Terms</h3>
+        <p>Build a framework for every decision ahead: Your values, vision, and priorities described in words that fit you.</p>
+      </div>
+      <div class="session-card">
+        <p class="session-num">Session 3</p>
+        <h3>Map the Path Forward</h3>
+        <p>Identify the gaps between where you are and where you want to be, and build a realistic plan that puts what matters first and shows you what to do next.</p>
+      </div>
+      <div class="session-card">
+        <p class="session-num">Session 4 &amp; Beyond</p>
+        <h3>Know Exactly Where to Start</h3>
+        <p>Break your goals into milestones, and milestones into actions so you know exactly where to invest your energy.</p>
+        <p>Plus 3 monthly check-ins (included) to keep you accountable, on track, and moving forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Our Story ══════════════════════════════════════════════ -->
+<section id="our-story">
+  <div class="section-inner">
+    <div class="story-inner">
+      <h2>We built what we couldn't find.</h2>
+      <p class="story-note">A Note From Us:</p>
+      <p class="story-body">We wanted to live an intentional life. The problem is, when it was time to decide how to do that, we faced the same struggle as many others: knowing yourself doesn't automatically translate into a great life.</p>
+      <p class="story-body">We realized the real problem wasn't motivation. There is a gap between insight and action, and no good system to close it. That's what we built Thena to do. We spent the past year combining ideas from behavioral research, planning methods, and human-centered design into a system we wished existed. We built it, tested it, and watched it help others. That's when we knew it really worked.</p>
+      <p class="story-sig">— Priya &amp; Sebastian</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Testimonial ════════════════════════════════════════════ -->
+<section id="testimonial">
+  <div class="section-inner">
+    <p class="pull-quote">"The shift isn't motivational. It's structural. People stop managing life in the leftover space and start designing it from the center."</p>
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Thena gave me more than a plan. It gave me the framework to move forward, and the confidence to say yes to what matters, and no to what doesn't"</p>
+      <p class="testimonial-name">— Molly</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Workshop CTA ════════════════════════════════════════════ -->
+<section id="workshop">
+  <div class="section-inner">
+    <div class="workshop-grid">
+      <div class="workshop-info">
+        <span class="eyebrow eyebrow-light">Upcoming workshop</span>
+        <h2>Start Building Your Life Intentionally</h2>
+        <p class="workshop-desc">A free 60-minute live session to define what matters most, the foundation of building intentionally.</p>
+        <p class="workshop-when">When: May 13th 5:00 PM ET</p>
+      </div>
+      <div class="workshop-form-wrap">
+        <p class="form-title">Save your spot</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wf-first">First name *</label>
+            <input type="text" id="wf-first" name="first_name" placeholder="First name" autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="wf-last">Last name *</label>
+            <input type="text" id="wf-last" name="last_name" placeholder="Last name" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="wf-email">Email *</label>
+          <input type="email" id="wf-email" name="email" placeholder="your@email.com" autocomplete="email">
+        </div>
+        <button class="btn btn-mid" type="submit">Save My Spot</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Bottom CTA ═════════════════════════════════════════════ -->
+<section id="cta">
+  <div class="cta-inner">
+    <span class="eyebrow">Start here</span>
+    <h2>Stop drifting. Start building.</h2>
+    <p class="cta-body">A free 30-minute call to understand where you are, what you're looking for, and whether Thena is the right next step. No pitch. No pressure. Just a real conversation.</p>
+    <a href="https://calendly.com/pm-achaibar/30min" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Book My Call</a>
+  </div>
+</section>
+
+<!-- ═══ Newsletter ═════════════════════════════════════════════ -->
+<section id="newsletter">
+  <h3>Want to stay in the loop?</h3>
+  <p class="nl-desc">By providing your email, you agree to receive occasional emails from Thena about workshops, content, and program updates. You can unsubscribe at any time.</p>
+  <div class="nl-form">
+    <input type="email" placeholder="Email *" aria-label="Email address">
+    <button class="btn-nl" type="submit">Sign Up</button>
+  </div>
+</section>
+
+<!-- ═══ Footer ═════════════════════════════════════════════════ -->
+<footer>
+  <p class="footer-tagline">We build systems that turn self-awareness into life strategy, helping you move forward on purpose.</p>
+  <p class="footer-copy">© 2026 by The Thena System LLC.</p>
+</footer>
+
+</body>
+</html>
