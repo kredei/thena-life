@@ -11,6 +11,9 @@
   <style>
     :root {
       --cream:      #ede9e2;
+      --gray-light: #f4f4f4;
+      --charcoal:   #474644;
+      --dark-gray:  #595959;
       --terracotta: #a74528;
       --salmon:     #db8f78;
       --peach:      #ffb7a1;
@@ -19,651 +22,191 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--cream); line-height: 1.6; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--text);
-      background: var(--cream);
-      line-height: 1.6;
-    }
-
-    /* ─── Nav ─────────────────────────────────────────────── */
+    /* ─── Nav ─────────────────────────────────────────────────── */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: var(--cream);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 1.1rem 5rem;
       border-bottom: 1px solid rgba(23,22,20,0.08);
     }
-
-    .nav-logo img {
-      height: 38px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.92rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      transition: color 0.15s;
-    }
-
+    .nav-logo img { height: 38px; width: auto; display: block; }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 0.92rem; font-weight: 500; transition: color 0.15s; }
     .nav-links a:hover { color: var(--terracotta); }
+    .nav-links .nav-cta a { background: var(--terracotta); color: var(--white); padding: 0.55rem 1.4rem; border-radius: 3px; font-weight: 600; }
+    .nav-links .nav-cta a:hover { color: var(--white); opacity: 0.88; }
 
-    .nav-links .nav-cta a {
-      background: var(--terracotta);
-      color: var(--white);
-      padding: 0.55rem 1.4rem;
-      border-radius: 3px;
-      font-weight: 600;
-    }
-
-    .nav-links .nav-cta a:hover {
-      color: var(--white);
-      opacity: 0.88;
-    }
-
-    /* ─── Shared helpers ──────────────────────────────────── */
+    /* ─── Shared ──────────────────────────────────────────────── */
     .section-inner { max-width: 1120px; margin: 0 auto; }
-
     .eyebrow {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 1.1rem;
+      display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--terracotta); margin-bottom: 1.1rem;
     }
-
-    .eyebrow-light { color: var(--peach); }
-
-    h2 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.18;
-      margin-bottom: 1.4rem;
-    }
-
-    h3 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 700;
-      line-height: 1.25;
-    }
-
+    h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.18; margin-bottom: 1.4rem; }
+    h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; line-height: 1.25; }
     .btn {
-      display: inline-block;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.97rem;
-      border-radius: 3px;
-      padding: 0.9rem 2.4rem;
-      transition: opacity 0.15s;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
+      display: inline-block; text-decoration: none; font-weight: 600; font-size: 0.97rem;
+      border-radius: 3px; padding: 0.9rem 2.4rem; transition: opacity 0.15s;
+      cursor: pointer; border: none; font-family: inherit;
     }
-
     .btn:hover { opacity: 0.87; }
+    .btn-dark { background: var(--terracotta); color: var(--white); }
+    .btn-light { background: var(--white); color: var(--text); }
+    .btn-form { background: var(--salmon); color: var(--text); width: 100%; text-align: center; padding: 0.85rem 2rem; }
 
-    .btn-dark {
-      background: var(--terracotta);
-      color: var(--white);
-    }
-
-    .btn-mid {
-      background: var(--salmon);
-      color: var(--text);
-      width: 100%;
-      text-align: center;
-      padding: 0.85rem 2rem;
-    }
-
-    /* ─── Hero ───────────────────────────────────────────── */
-    #hero {
-      background: var(--cream);
-      padding: 9rem 5rem 7rem;
-      text-align: center;
-    }
-
+    /* ─── Hero (cream) ────────────────────────────────────────── */
+    #hero { background: var(--cream); padding: 9rem 5rem 7rem; text-align: center; }
     .hero-inner { max-width: 820px; margin: 0 auto; }
-
     #hero .eyebrow { margin-bottom: 1.6rem; }
-
     #hero h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 800;
-      line-height: 1.1;
+      font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800; line-height: 1.1;
       margin-bottom: 1.6rem;
-      color: var(--text);
     }
+    .hero-sub { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.9rem; }
+    .hero-body { font-size: 1.05rem; color: #666; margin-bottom: 2.6rem; }
 
-    .hero-sub {
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-body {
-      font-size: 1.05rem;
-      color: #555;
-      margin-bottom: 2.6rem;
-    }
-
-    /* ─── Why Stuck / How It Works ───────────────────────── */
-    #how {
-      background: var(--white);
-      padding: 6rem 5rem;
-    }
-
+    /* ─── How It Works / Why Stuck (light gray) ───────────────── */
+    #how { background: var(--gray-light); padding: 6rem 5rem; }
     .how-content { max-width: 680px; }
+    .how-intro { font-size: 1.05rem; color: #555; margin-bottom: 2rem; line-height: 1.7; }
+    .stuck-list { display: flex; flex-direction: column; gap: 1rem; }
+    .stuck-item { font-size: 1rem; padding: 1.1rem 1.4rem; border-left: 3px solid var(--salmon); background: var(--white); line-height: 1.6; }
+    .stuck-note { margin-top: 2rem; font-style: italic; font-size: 0.97rem; color: var(--terracotta); font-weight: 500; line-height: 1.6; }
 
-    .how-content h2 { margin-bottom: 0.5rem; }
-
-    .how-intro {
-      font-size: 1.05rem;
-      color: #555;
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
-
-    .stuck-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .stuck-item {
-      font-size: 1rem;
-      padding: 1.1rem 1.4rem;
-      border-left: 3px solid var(--salmon);
-      background: var(--cream);
-      line-height: 1.6;
-    }
-
-    .stuck-note {
-      margin-top: 2rem;
-      font-style: italic;
-      font-size: 0.97rem;
-      color: var(--terracotta);
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
-    /* ─── What Thena Is ──────────────────────────────────── */
-    #section-1 {
-      background: var(--cream);
-      padding: 7rem 5rem;
-    }
-
+    /* ─── What Thena Is (cream) ───────────────────────────────── */
+    #section-1 { background: var(--cream); padding: 7rem 5rem; }
     .what-header { max-width: 680px; margin-bottom: 3.5rem; }
-
-    .what-header h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      margin-bottom: 1.2rem;
-    }
-
-    .what-body {
-      font-size: 1rem;
-      color: #555;
-      line-height: 1.75;
-      margin-bottom: 0.75rem;
-    }
-
+    .what-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1.2rem; }
+    .what-body { font-size: 1rem; color: #555; line-height: 1.75; margin-bottom: 0.75rem; }
     .what-header .btn { margin-top: 1.5rem; }
+    .feature-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .feature-card { background: var(--white); border-radius: 8px; padding: 2.2rem 2rem; }
+    .feature-card h3 { font-size: 1.05rem; margin-bottom: 0.8rem; }
+    .feature-card p { font-size: 0.93rem; color: #5a5a5a; line-height: 1.7; }
 
-    .feature-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+    /* ─── Growth Made Visible (light gray, single col) ────────── */
+    #growth { background: var(--gray-light); padding: 7rem 5rem; }
+    .growth-inner { max-width: 780px; }
+    #growth h2 { margin-bottom: 1rem; }
+    .growth-body { font-size: 1rem; color: #555; line-height: 1.75; margin-bottom: 0.9rem; }
+    .growth-body strong { color: var(--text); }
+    .growth-stat-row {
+      display: flex; align-items: flex-start; gap: 2.5rem; margin-top: 3rem;
+      padding-top: 2.5rem; border-top: 2px solid rgba(23,22,20,0.1);
     }
+    .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 5rem; font-weight: 800; color: var(--terracotta); line-height: 1; flex-shrink: 0; }
+    .stat-info { padding-top: 0.5rem; }
+    .stat-desc { font-size: 1rem; color: #444; line-height: 1.5; margin-bottom: 0.8rem; }
+    .stat-caption { font-size: 0.88rem; color: var(--terracotta); font-weight: 500; margin-bottom: 0.35rem; }
+    .stat-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #999; }
 
-    .feature-card {
-      background: var(--white);
-      border-radius: 8px;
-      padding: 2.2rem 2rem;
-    }
-
-    .feature-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .feature-card p {
-      font-size: 0.93rem;
-      color: #5a5a5a;
-      line-height: 1.7;
-    }
-
-    /* ─── Growth Made Visible ────────────────────────────── */
-    #growth {
-      background: var(--terracotta);
-      padding: 7rem 5rem;
-    }
-
-    .growth-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .growth-text h2 { color: var(--white); margin-bottom: 1.2rem; }
-
-    .growth-text p {
-      color: rgba(255,255,255,0.85);
-      font-size: 1rem;
-      line-height: 1.75;
-      margin-bottom: 0.9rem;
-    }
-
-    .growth-text strong { color: var(--white); }
-
-    .growth-stat {
-      text-align: center;
-      background: rgba(0,0,0,0.12);
-      border-radius: 12px;
-      padding: 3rem 2.5rem;
-    }
-
-    .stat-num {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 5.5rem;
-      font-weight: 800;
-      color: var(--peach);
-      line-height: 1;
-      margin-bottom: 0.75rem;
-    }
-
-    .stat-desc {
-      color: rgba(255,255,255,0.9);
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-    }
-
-    .stat-caption {
-      color: var(--peach);
-      font-size: 0.88rem;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-    }
-
-    .stat-label {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    /* ─── Program ────────────────────────────────────────── */
-    #program {
-      background: var(--cream);
-      padding: 7rem 5rem;
-    }
-
+    /* ─── Program (dark charcoal) ─────────────────────────────── */
+    #program { background: var(--charcoal); padding: 7rem 5rem; }
+    #program .eyebrow { color: var(--peach); }
+    #program h2 { color: var(--white); }
     .program-header { max-width: 540px; margin-bottom: 3.5rem; }
-
-    .session-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .session-card {
-      background: var(--white);
-      border-radius: 8px;
-      padding: 2.5rem 2.2rem;
-    }
-
-    .session-num {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--salmon);
-      margin-bottom: 0.85rem;
-    }
-
-    .session-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-    }
-
-    .session-card p {
-      font-size: 0.94rem;
-      color: #5a5a5a;
-      line-height: 1.72;
-    }
-
+    .session-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .session-card { background: rgba(255,255,255,0.07); border-radius: 8px; padding: 2.5rem 2.2rem; border: 1px solid rgba(255,255,255,0.1); }
+    .session-num { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--salmon); margin-bottom: 0.85rem; }
+    .session-card h3 { font-size: 1.3rem; color: var(--white); margin-bottom: 1rem; }
+    .session-card p { font-size: 0.94rem; color: rgba(255,255,255,0.7); line-height: 1.72; }
     .session-card p + p { margin-top: 0.75rem; }
 
-    /* ─── Our Story ──────────────────────────────────────── */
-    #our-story {
-      background: var(--white);
-      padding: 7rem 5rem;
-    }
-
+    /* ─── Our Story (cream) ───────────────────────────────────── */
+    #our-story { background: var(--cream); padding: 7rem 5rem; }
     .story-inner { max-width: 680px; }
-
     .story-inner h2 { margin-bottom: 0.3rem; }
+    .story-note { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--salmon); margin-bottom: 2rem; }
+    .story-body { font-size: 1.03rem; color: #555; line-height: 1.8; margin-bottom: 1.1rem; }
+    .story-sig { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text); margin-top: 2rem; }
 
-    .story-note {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--salmon);
-      margin-bottom: 2rem;
-    }
-
-    .story-body {
-      font-size: 1.03rem;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 1.1rem;
-    }
-
-    .story-sig {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-top: 2rem;
-    }
-
-    /* ─── Testimonial ────────────────────────────────────── */
-    #testimonial {
-      background: var(--cream);
-      padding: 7rem 5rem;
-      text-align: center;
-    }
-
+    /* ─── Testimonial (dark gray) ─────────────────────────────── */
+    #testimonial { background: var(--dark-gray); padding: 7rem 5rem; text-align: center; }
+    #testimonial .eyebrow { color: var(--peach); }
     .pull-quote {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
-      font-weight: 700;
-      font-style: italic;
-      line-height: 1.45;
-      color: var(--terracotta);
-      max-width: 780px;
-      margin: 0 auto 4rem;
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem); font-weight: 700; font-style: italic;
+      line-height: 1.45; color: var(--white); max-width: 780px; margin: 0 auto 4rem;
     }
+    .testimonial-card { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 2.8rem 3rem; max-width: 620px; margin: 0 auto; text-align: left; }
+    .testimonial-text { font-size: 1.08rem; font-style: italic; line-height: 1.7; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9); }
+    .testimonial-name { font-weight: 700; font-size: 0.93rem; color: var(--peach); }
 
-    .testimonial-card {
-      background: var(--white);
-      border-radius: 8px;
-      padding: 2.8rem 3rem;
-      max-width: 620px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .testimonial-text {
-      font-size: 1.08rem;
-      font-style: italic;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      color: var(--text);
-    }
-
-    .testimonial-name {
-      font-weight: 700;
-      font-size: 0.93rem;
-      color: var(--terracotta);
-    }
-
-    /* ─── Workshop ───────────────────────────────────────── */
-    #workshop {
-      background: var(--salmon);
-      padding: 7rem 5rem;
-    }
-
-    .workshop-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
+    /* ─── Workshop + CTA (dark charcoal, combined) ────────────── */
+    #workshop-cta { background: var(--charcoal); padding: 7rem 5rem; }
+    .workshop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-bottom: 5rem; }
+    .workshop-info .eyebrow { color: var(--peach); }
     .workshop-info h2 { color: var(--white); margin-bottom: 1.2rem; }
-
-    .workshop-desc {
-      color: rgba(255,255,255,0.9);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .workshop-when {
-      color: var(--white);
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .workshop-form-wrap {
-      background: var(--white);
-      border-radius: 8px;
-      padding: 2.6rem 2.4rem;
-    }
-
-    .form-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 1.6rem;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.38rem;
-      margin-bottom: 1rem;
-    }
-
-    .form-group label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    .form-group input {
-      padding: 0.72rem 0.9rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 0.94rem;
-      font-family: inherit;
-      color: var(--text);
-      background: var(--white);
-      outline: none;
-      transition: border-color 0.15s;
-    }
-
+    .workshop-desc { color: rgba(255,255,255,0.85); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .workshop-when { color: var(--white); font-size: 1rem; font-weight: 600; }
+    .workshop-form-wrap { background: var(--white); border-radius: 8px; padding: 2.6rem 2.4rem; }
+    .form-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 1.6rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.38rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+    .form-group input { padding: 0.72rem 0.9rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.94rem; font-family: inherit; color: var(--text); background: var(--white); outline: none; transition: border-color 0.15s; }
     .form-group input:focus { border-color: var(--salmon); }
-
-    /* ─── Bottom CTA ─────────────────────────────────────── */
-    #cta {
-      background: var(--cream);
-      padding: 8rem 5rem;
-      text-align: center;
-    }
-
+    .cta-divider { border: none; border-top: 1px solid rgba(255,255,255,0.12); margin-bottom: 5rem; }
+    #cta { text-align: center; }
+    #cta .eyebrow { color: var(--peach); }
+    #cta h2 { color: var(--white); margin-bottom: 1.4rem; }
     .cta-inner { max-width: 620px; margin: 0 auto; }
+    .cta-body { font-size: 1.05rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 2.6rem; }
 
-    #cta h2 { margin-bottom: 1.4rem; }
-
-    .cta-body {
-      font-size: 1.05rem;
-      color: #555;
-      line-height: 1.75;
-      margin-bottom: 2.6rem;
-    }
-
-    /* ─── Newsletter ─────────────────────────────────────── */
-    #newsletter {
-      background: var(--terracotta);
-      padding: 5rem;
-      text-align: center;
-    }
-
-    #newsletter h3 {
-      font-size: 1.5rem;
-      color: var(--white);
-      margin-bottom: 0.6rem;
-    }
-
-    .nl-desc {
-      color: rgba(255,255,255,0.78);
-      font-size: 0.88rem;
-      max-width: 500px;
-      margin: 0 auto 2rem;
-      line-height: 1.6;
-    }
-
-    .nl-form {
-      display: flex;
-      gap: 0.75rem;
-      max-width: 430px;
-      margin: 0 auto;
-    }
-
-    .nl-form input {
-      flex: 1;
-      padding: 0.78rem 1rem;
-      border: none;
-      border-radius: 4px;
-      font-size: 0.94rem;
-      font-family: inherit;
-      outline: none;
-    }
-
-    .btn-nl {
-      background: var(--text);
-      color: var(--white);
-      padding: 0.78rem 1.6rem;
-      border: none;
-      border-radius: 4px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: inherit;
-      white-space: nowrap;
-      transition: opacity 0.15s;
-    }
-
+    /* ─── Footer (near-black, includes newsletter) ────────────── */
+    footer { background: var(--text); padding: 5rem; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .footer-nl h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem; color: var(--white); margin-bottom: 0.6rem; }
+    .footer-nl-desc { color: rgba(237,233,226,0.6); font-size: 0.85rem; max-width: 380px; margin-bottom: 1.5rem; line-height: 1.6; }
+    .nl-form { display: flex; gap: 0.75rem; max-width: 380px; }
+    .nl-form input { flex: 1; padding: 0.78rem 1rem; border: none; border-radius: 4px; font-size: 0.94rem; font-family: inherit; outline: none; }
+    .btn-nl { background: var(--salmon); color: var(--text); padding: 0.78rem 1.5rem; border: none; border-radius: 4px; font-size: 0.88rem; font-weight: 600; cursor: pointer; font-family: inherit; white-space: nowrap; transition: opacity 0.15s; }
     .btn-nl:hover { opacity: 0.85; }
+    .footer-brand { display: flex; flex-direction: column; gap: 1.2rem; }
+    .footer-logo img { height: 38px; width: auto; opacity: 0.75; }
+    .footer-tagline { font-size: 0.9rem; color: rgba(237,233,226,0.55); max-width: 380px; line-height: 1.65; }
+    .footer-copy { font-size: 0.82rem; color: rgba(237,233,226,0.3); }
 
-    /* ─── Footer ─────────────────────────────────────────── */
-    footer {
-      background: var(--text);
-      padding: 3rem 5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .footer-tagline {
-      font-size: 0.9rem;
-      color: rgba(237,233,226,0.65);
-      max-width: 440px;
-      line-height: 1.65;
-    }
-
-    .footer-copy {
-      font-size: 0.82rem;
-      color: rgba(237,233,226,0.38);
-      white-space: nowrap;
-    }
-
-    /* ─── Responsive ─────────────────────────────────────── */
+    /* ─── Responsive ──────────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 1rem 2rem; }
-
-      #hero,
-      #how,
-      #section-1,
-      #growth,
-      #program,
-      #our-story,
-      #testimonial,
-      #workshop,
-      #cta,
-      #newsletter { padding-left: 1.8rem; padding-right: 1.8rem; }
-
-      .how-grid,
-      .growth-grid,
-      .workshop-grid { grid-template-columns: 1fr; gap: 3rem; }
-
-      .feature-cards,
-      .session-grid { grid-template-columns: 1fr; }
-
+      #hero, #how, #section-1, #growth, #program, #our-story, #testimonial, #workshop-cta { padding-left: 1.8rem; padding-right: 1.8rem; }
+      footer { padding: 3.5rem 1.8rem; }
+      .workshop-grid, .growth-stat-row { flex-direction: column; gap: 2rem; }
+      .workshop-grid { grid-template-columns: 1fr; }
+      .feature-cards, .session-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
-
-      footer {
-        flex-direction: column;
-        text-align: center;
-        padding: 2.5rem 1.8rem;
-      }
-
-      .footer-tagline { max-width: 100%; }
-
-      .nl-form { flex-direction: column; }
+      .nl-form { flex-direction: column; max-width: 100%; }
     }
-
     @media (max-width: 600px) {
       .nav-links { display: none; }
       #hero h1 { font-size: 2.4rem; }
+      .stat-num { font-size: 3.5rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ═══ Navigation ═══════════════════════════════════════════ -->
+<!-- ═══ Navigation ══════════════════════════════════════════════ -->
 <nav>
   <a href="/" class="nav-logo" aria-label="Thena home">
-    <img
-      src="https://static.wixstatic.com/media/d0f797_23b9f4fb864e48b2807ee0c7174c263b~mv2.png"
-      alt="Thena"
-    />
+    <img src="https://static.wixstatic.com/media/d0f797_23b9f4fb864e48b2807ee0c7174c263b~mv2.png" alt="Thena" />
   </a>
   <ul class="nav-links">
     <li><a href="#how">About</a></li>
     <li><a href="#program">Program</a></li>
     <li><a href="#our-story">Our Story</a></li>
-    <li class="nav-cta"><a href="#section-1">Start Today</a></li>
+    <li class="nav-cta"><a href="#cta">Start Today</a></li>
   </ul>
 </nav>
 
-<!-- ═══ Hero ══════════════════════════════════════════════════ -->
+<!-- ═══ Hero (cream) ════════════════════════════════════════════ -->
 <section id="hero">
   <div class="hero-inner">
     <span class="eyebrow">a GUIDED LIFE DESIGN SYSTEM</span>
@@ -674,7 +217,7 @@
   </div>
 </section>
 
-<!-- ═══ How It Works / Why You Feel Stuck ════════════════════ -->
+<!-- ═══ How It Works / Why You Feel Stuck (light gray) ══════════ -->
 <section id="how">
   <div class="section-inner">
     <div class="how-content">
@@ -690,7 +233,7 @@
   </div>
 </section>
 
-<!-- ═══ What Thena Is ══════════════════════════════════════════ -->
+<!-- ═══ What Thena Is (cream) ═══════════════════════════════════ -->
 <section id="section-1">
   <div class="section-inner">
     <div class="what-header">
@@ -700,7 +243,6 @@
       <p class="what-body">Most tools help you either learn about yourself or get things done, but few give you a structure that connects the two. Thena closes the gap between knowing yourself and living intentionally.</p>
       <a href="https://calendly.com/pm-achaibar/30min" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Start Today</a>
     </div>
-
     <div class="feature-cards">
       <div class="feature-card">
         <h3>Built On What Already Works</h3>
@@ -718,30 +260,31 @@
   </div>
 </section>
 
-<!-- ═══ Growth Made Visible ════════════════════════════════════ -->
+<!-- ═══ Growth Made Visible (light gray, single col) ════════════ -->
 <section id="growth">
   <div class="section-inner">
-    <div class="growth-grid">
-      <div class="growth-text">
-        <span class="eyebrow eyebrow-light">What Makes Thena Different</span>
-        <h2>Growth Made Visible</h2>
-        <p>Most programs help you feel better, maybe clearer, more motivated. But after a few months, it's hard to see what's really changed. Thena takes a different approach. From start to finish, Thena focuses on one question: Is your life moving in the direction you want?</p>
-        <p><strong>Progress isn't just a feeling. We track it over time.</strong></p>
-      </div>
-      <div class="growth-stat">
+    <div class="growth-inner">
+      <span class="eyebrow">What Makes Thena Different</span>
+      <h2>Growth Made Visible</h2>
+      <p class="growth-body">Most programs help you feel better, maybe clearer, more motivated. But after a few months, it's hard to see what's really changed. Thena takes a different approach. From start to finish, Thena focuses on one question: Is your life moving in the direction you want?</p>
+      <p class="growth-body"><strong>Progress isn't just a feeling. We track it over time.</strong></p>
+      <div class="growth-stat-row">
         <div class="stat-num">+20%</div>
-        <p class="stat-desc">increase in life satisfaction score after 3 months</p>
-        <p class="stat-caption">From feeling scattered to knowing exactly where &amp; why</p>
-        <p class="stat-label">What you leave with</p>
+        <div class="stat-info">
+          <p class="stat-desc">increase in life satisfaction score after 3 months</p>
+          <p class="stat-caption">From feeling scattered to knowing exactly where &amp; why</p>
+          <p class="stat-label">What you leave with</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ Program ════════════════════════════════════════════════ -->
+<!-- ═══ Program (dark charcoal) ═════════════════════════════════ -->
 <section id="program">
   <div class="section-inner">
     <div class="program-header">
+      <span class="eyebrow">The Program</span>
       <h2>The Program</h2>
     </div>
     <div class="session-grid">
@@ -770,7 +313,7 @@
   </div>
 </section>
 
-<!-- ═══ Our Story ══════════════════════════════════════════════ -->
+<!-- ═══ Our Story (cream) ════════════════════════════════════════ -->
 <section id="our-story">
   <div class="section-inner">
     <div class="story-inner">
@@ -778,14 +321,15 @@
       <p class="story-note">A Note From Us:</p>
       <p class="story-body">We wanted to live an intentional life. The problem is, when it was time to decide how to do that, we faced the same struggle as many others: knowing yourself doesn't automatically translate into a great life.</p>
       <p class="story-body">We realized the real problem wasn't motivation. There is a gap between insight and action, and no good system to close it. That's what we built Thena to do. We spent the past year combining ideas from behavioral research, planning methods, and human-centered design into a system we wished existed. We built it, tested it, and watched it help others. That's when we knew it really worked.</p>
-      <p class="story-sig">— Priya &amp; Sebastian</p>
+      <p class="story-sig">Priya &amp; Sebastian</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ Testimonial ════════════════════════════════════════════ -->
+<!-- ═══ Testimonial (dark gray) ══════════════════════════════════ -->
 <section id="testimonial">
   <div class="section-inner">
+    <span class="eyebrow">Proof, not promises.</span>
     <p class="pull-quote">"The shift isn't motivational. It's structural. People stop managing life in the leftover space and start designing it from the center."</p>
     <div class="testimonial-card">
       <p class="testimonial-text">"Thena gave me more than a plan. It gave me the framework to move forward, and the confidence to say yes to what matters, and no to what doesn't"</p>
@@ -794,12 +338,14 @@
   </div>
 </section>
 
-<!-- ═══ Workshop CTA ════════════════════════════════════════════ -->
-<section id="workshop">
+<!-- ═══ Workshop + CTA (dark charcoal, combined) ════════════════ -->
+<section id="workshop-cta">
   <div class="section-inner">
+
+    <!-- Workshop -->
     <div class="workshop-grid">
       <div class="workshop-info">
-        <span class="eyebrow eyebrow-light">Upcoming workshop</span>
+        <span class="eyebrow">Upcoming workshop</span>
         <h2>Start Building Your Life Intentionally</h2>
         <p class="workshop-desc">A free 60-minute live session to define what matters most, the foundation of building intentionally.</p>
         <p class="workshop-when">When: May 13th 5:00 PM ET</p>
@@ -820,36 +366,44 @@
           <label for="wf-email">Email *</label>
           <input type="email" id="wf-email" name="email" placeholder="your@email.com" autocomplete="email">
         </div>
-        <button class="btn btn-mid" type="submit">Save My Spot</button>
+        <button class="btn btn-form" type="submit">Save My Spot</button>
       </div>
     </div>
+
+    <hr class="cta-divider">
+
+    <!-- CTA -->
+    <div id="cta">
+      <div class="cta-inner">
+        <span class="eyebrow">Start here</span>
+        <h2>Stop drifting. Start building.</h2>
+        <p class="cta-body">A free 30-minute call to understand where you are, what you're looking for, and whether Thena is the right next step. No pitch. No pressure. Just a real conversation.</p>
+        <a href="https://calendly.com/pm-achaibar/30min" class="btn btn-light" target="_blank" rel="noopener noreferrer">Book My Call</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ═══ Bottom CTA ═════════════════════════════════════════════ -->
-<section id="cta">
-  <div class="cta-inner">
-    <span class="eyebrow">Start here</span>
-    <h2>Stop drifting. Start building.</h2>
-    <p class="cta-body">A free 30-minute call to understand where you are, what you're looking for, and whether Thena is the right next step. No pitch. No pressure. Just a real conversation.</p>
-    <a href="https://calendly.com/pm-achaibar/30min" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Book My Call</a>
-  </div>
-</section>
-
-<!-- ═══ Newsletter ═════════════════════════════════════════════ -->
-<section id="newsletter">
-  <h3>Want to stay in the loop?</h3>
-  <p class="nl-desc">By providing your email, you agree to receive occasional emails from Thena about workshops, content, and program updates. You can unsubscribe at any time.</p>
-  <div class="nl-form">
-    <input type="email" placeholder="Email *" aria-label="Email address">
-    <button class="btn-nl" type="submit">Sign Up</button>
-  </div>
-</section>
-
-<!-- ═══ Footer ═════════════════════════════════════════════════ -->
+<!-- ═══ Footer (near-black, includes newsletter + taupe logo) ════ -->
 <footer>
-  <p class="footer-tagline">We build systems that turn self-awareness into life strategy, helping you move forward on purpose.</p>
-  <p class="footer-copy">© 2026 by The Thena System LLC.</p>
+  <div class="footer-inner">
+    <div class="footer-nl">
+      <h3>Want to stay in the loop?</h3>
+      <p class="footer-nl-desc">By providing your email, you agree to receive occasional emails from Thena about workshops, content, and program updates. You can unsubscribe at any time.</p>
+      <div class="nl-form">
+        <input type="email" placeholder="Email *" aria-label="Email address">
+        <button class="btn-nl" type="submit">Sign Up</button>
+      </div>
+    </div>
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="https://static.wixstatic.com/media/d0f797_4d44f91919644bb4937da4a64fa4f43f~mv2.png" alt="Thena" />
+      </div>
+      <p class="footer-tagline">We build systems that turn self-awareness into life strategy, helping you move forward on purpose.</p>
+      <p class="footer-copy">© 2026 by The Thena System LLC.</p>
+    </div>
+  </div>
 </footer>
 
 </body>
