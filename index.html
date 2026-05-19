@@ -174,14 +174,9 @@
       padding: 6rem 5rem;
     }
 
-    .how-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
+    .how-content { max-width: 680px; }
 
-    .how-left h2 { margin-bottom: 0.5rem; }
+    .how-content h2 { margin-bottom: 0.5rem; }
 
     .how-intro {
       font-size: 1.05rem;
@@ -661,7 +656,7 @@
     />
   </a>
   <ul class="nav-links">
-    <li><a href="#our-story">About</a></li>
+    <li><a href="#how">About</a></li>
     <li><a href="#program">Program</a></li>
     <li><a href="#our-story">Our Story</a></li>
     <li class="nav-cta"><a href="#section-1">Start Today</a></li>
@@ -682,35 +677,15 @@
 <!-- ═══ How It Works / Why You Feel Stuck ════════════════════ -->
 <section id="how">
   <div class="section-inner">
-    <div class="how-grid">
-      <div class="how-left">
-        <span class="eyebrow">How It Works</span>
-        <h2>WHY YOU FEEL STUCK</h2>
-        <p class="how-intro">You're doing the work, but how do you know if it's working?</p>
-        <div class="stuck-list">
-          <div class="stuck-item">You know something feels off, but it's hard to say what.</div>
-          <div class="stuck-item">You start, but when you do move forward, how do you know if it's in the right direction?</div>
-          <div class="stuck-item">You're doing the work, but how do you know if it's working?</div>
-        </div>
-        <p class="stuck-note">These aren't personal failures. This isn't a motivation problem: It's a structure problem.</p>
+    <div class="how-content">
+      <span class="eyebrow">How It Works</span>
+      <h2>WHY YOU FEEL STUCK</h2>
+      <p class="how-intro">You're doing the work, but how do you know if it's working?</p>
+      <div class="stuck-list">
+        <div class="stuck-item">You know something feels off, but it's hard to say what.</div>
+        <div class="stuck-item">You start, but when you do move forward, how do you know if it's in the right direction?</div>
       </div>
-      <div class="how-right">
-        <!-- Visual accent column – mirrors the card-like feel of the original -->
-        <div style="background:var(--cream);border-radius:10px;padding:3rem 2.5rem;height:100%;display:flex;flex-direction:column;justify-content:center;gap:1.8rem;">
-          <div>
-            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.8rem;font-weight:800;color:var(--terracotta);line-height:1;">01</div>
-            <p style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:0.5rem;">Understand exactly where you stand in every area of your life.</p>
-          </div>
-          <div>
-            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.8rem;font-weight:800;color:var(--terracotta);line-height:1;">02</div>
-            <p style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:0.5rem;">Define what success means to you — not someone else's version.</p>
-          </div>
-          <div>
-            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.8rem;font-weight:800;color:var(--terracotta);line-height:1;">03</div>
-            <p style="font-size:0.95rem;color:#555;line-height:1.7;margin-top:0.5rem;">Build a plan that closes the gap between where you are and where you want to be.</p>
-          </div>
-        </div>
-      </div>
+      <p class="stuck-note">These aren't personal failures. This isn't a motivation problem: It's a structure problem.</p>
     </div>
   </div>
 </section>
@@ -767,8 +742,7 @@
 <section id="program">
   <div class="section-inner">
     <div class="program-header">
-      <span class="eyebrow">The Program</span>
-      <h2>How It Works</h2>
+      <h2>The Program</h2>
     </div>
     <div class="session-grid">
       <div class="session-card">
